@@ -1,0 +1,35 @@
+
+# User configuration
+export LOCAL="$HOME/.local"
+if ! echo $PATH | grep $LOCAL/bin >/dev/null; then
+    export PATH=$LOCAL/bin:$PATH
+fi
+
+# Language environment
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+
+# Preferred editor
+if hash vim 2>/dev/null; then
+    export EDITOR=$(which vim)
+fi
+
+# Colors for auto completion
+export DIRCOLORS=dircolors
+if hash gdircolors 2>/dev/null; then
+    export DIRCOLORS=gdircolors
+    alias ls="gls --color=tty"
+fi
+if hash $DIRCOLORS 2>/dev/null; then
+    eval "$($DIRCOLORS -b ~/.dircolors)"
+    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+fi
+
+# Use del instead of rm
+if hash trash 2>/dev/null; then
+    alias rm="echo Use 'del', or the full path i.e. '/bin/rm'"
+    alias del="trash"
+fi
+
+# User configuration
+source $HOME/.zshrc_personal
