@@ -1,5 +1,4 @@
 
 import component
 
-
-component.zsh.setup()
+component.vim.setup()

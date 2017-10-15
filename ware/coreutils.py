@@ -6,6 +6,9 @@ import tempfile as _tempfile
 import getpass
 import shutil
 import subprocess
+import platform
+
+import ware
 
 
 def cat(files, stdout=None, mode='w'):
@@ -18,6 +21,13 @@ def cat(files, stdout=None, mode='w'):
     else:
         with open(stdout, mode) as f:
             f.writelines(i for i in lines)
+
+
+def command(cmd, sudo=False):
+    if sudo:
+        cmd = "echo '%s' | sudo -kS %s" % (ware.password, cmd)
+    status, output = subprocess.getstatusoutput(cmd)
+    return status, output
 
 
 def date():
@@ -81,5 +91,19 @@ def touch(file):
     return file
 
 
+def uname():
+    os_type, version = "", ""
+    system = platform.system()
+    info = platform.platform()
+    if system == "Linux" and "Ubuntu" in info:
+        os_type = "Ubuntu"
+        version = re.findall(".*Ubuntu-(.*)-.*", info)[0]
+    if system == "Darwin":
+        os_type = "macOS"
+        _, version = command("sw_vers -productVersion")
+    return os_type, version
+
+
 def which(program):
     return shutil.which(program)
+
