@@ -17,6 +17,7 @@ if os_type == "macOS" and coreutils.which("brew") is None:
     print("please install homebrew")
     exit(-1)
 
+
 temp_path = coreutils.mkdir(os.path.join(coreutils.tempfile(), "warehouse"))
 log = coreutils.touch(os.path.join(temp_path, "ware.log"))
 password = coreutils.passwd()
@@ -24,20 +25,20 @@ password = coreutils.passwd()
 
 def install(program):
     if os_type == "Ubuntu":
-        command("apt install %s -y" % program, True)
+        command("apt install %s -y" % program, sudo=True)
     if os_type == "macOS":
-        command("brew install %s" % program)
+        command("brew install %s" % program, output=True)
 
 
 def update():
     if os_type == "Ubuntu":
-        command("apt update -y", True)
+        command("apt update -y", sudo=True)
     if os_type == "macOS":
-        command("brew update")
+        command("brew update", output=True)
 
 
 def upgrade(program=""):
     if os_type == "Ubuntu":
-        command("apt upgrade %s -y" % program, True)
+        command("apt upgrade %s -y" % program, sudo=True)
     if os_type == "macOS":
-        command("brew upgrade %s" % program)
+        command("brew upgrade %s" % program, output=True)

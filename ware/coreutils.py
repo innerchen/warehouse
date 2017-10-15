@@ -23,10 +23,14 @@ def cat(files, stdout=None, mode='w'):
             f.writelines(i for i in lines)
 
 
-def command(cmd, sudo=False):
+def command(cmd, sudo=False, output=False):
     if sudo:
         cmd = "echo '%s' | sudo -kS %s" % (ware.password, cmd)
-    status, output = subprocess.getstatusoutput(cmd)
+    if not output:
+        status, output = subprocess.getstatusoutput(cmd)
+    else:
+        output = ""
+        status = os.system(cmd)
     return status, output
 
 
