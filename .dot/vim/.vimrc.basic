@@ -1,0 +1,70 @@
+
+set nocompatible    " no compatibility with vi
+set nobackup        " don't use backupfiles
+set noswapfile      " don't use a swap file
+set history=1000    " store a ton of history
+
+syntax on           " syntax highlighting
+colorscheme monokai
+set encoding=utf-8  " set utf-8 as standard encoding
+set mouse=a         " enable mouse
+set backspace=2     " define behavior of backspace key
+
+set magic           " for regular expressions turn magic on
+set confirm         " confirm when closing unsaved file
+set hidden          " allow buffer switching without saving
+
+set number          " show line number
+set ruler           " show current position
+set cursorline      " highlight current line
+set wildmenu        " show list instead of just completing
+set wildignore+=*.o,*~,*.pyc,*.class
+
+set selection=exclusive
+
+set showmatch       " showing matching brackets
+set matchtime=0
+
+set ignorecase      " case insensitive search
+set smartcase       " case sensitive when uc present
+set incsearch       " find as you type search
+
+set nowrap          " don't wrap long lines
+set autoindent      " indent at the same level of the previous line
+set tabstop=4       " an indentation every four colums
+set shiftwidth=4    " Use indents of 4 spaces
+set expandtab       " tabs are spaces
+set softtabstop=4   " let backspace delete indent
+
+set signcolumn=yes  " open signcolumn
+
+set splitright      " puts new vsplit windows to the right of the current
+set splitbelow      " puts new vsplit windows to the right of the current
+
+set foldlevel=100   " set fold method
+set foldmethod=indent
+
+set scrolloff=2     " minimum lines to keep above and below cursor
+set completeopt+=longest
+
+
+let mapleader = ","
+
+set pastetoggle=<F2>
+
+nnoremap <silent> <space> @=((foldclosed(line('.')) < 0) ? 'zc':'zo')<CR>
+
+nnoremap ; :
+nnoremap U <C-R>
+
+nnoremap H ^
+nnoremap L $
+
+inoremap <C-K> <Up>
+inoremap <C-J> <Down>
+inoremap <C-H> <Left>
+inoremap <C-L> <Right>
+
+nnoremap <C-K> :tabnext<CR>
+nnoremap <C-J> :tabprevious<CR>
+
