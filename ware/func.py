@@ -43,6 +43,8 @@ def echo(strings, stdout=None, mode='w'):
     if stdout is None:
         return strings
     else:
+        if isinstance(strings, str):
+            strings = [strings]
         with open(stdout, mode) as f:
             f.writelines(s + "\n" for s in strings)
 
@@ -54,6 +56,10 @@ def grep(file, pattern):
         if re.search(pattern, i):
             return True
     return False
+
+
+def ln(source, dest):
+    command("ln -sf %s %s" % (source, dest))
 
 
 def mkdir(path):

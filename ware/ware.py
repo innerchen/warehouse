@@ -1,26 +1,26 @@
 
 import os
 
-from ware import coreutils
-from ware.coreutils import command
+from ware import func
+from ware.func import command
 
 
 home = os.path.expanduser("~")
 path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-os_type, os_version = coreutils.uname()
+os_type, os_version = func.uname()
 
 if os_type != "macOS" and os_type != "Ubuntu":
     print("not supported system: ", os_type)
 
-if os_type == "macOS" and coreutils.which("brew") is None:
+if os_type == "macOS" and func.which("brew") is None:
     print("command not found: brew")
     print("please install homebrew")
     exit(-1)
 
 
-temp_path = coreutils.mkdir(os.path.join(coreutils.tempfile(), "warehouse"))
-log = coreutils.touch(os.path.join(temp_path, "ware.log"))
-password = coreutils.passwd()
+temp_path = func.mkdir(os.path.join(func.tempfile(), "warehouse"))
+log = func.touch(os.path.join(temp_path, "ware.log"))
+password = func.passwd()
 
 
 def install(program):
@@ -32,7 +32,7 @@ def install(program):
 
 def update():
     if os_type == "Ubuntu":
-        command("apt update -y", sudo=True)
+        command("apt update", sudo=True)
     if os_type == "macOS":
         command("brew update", output=True)
 

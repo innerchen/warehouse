@@ -1,4 +1,4 @@
 
 import component
 
-component.vim.setup()
+component.ubuntu.setup()

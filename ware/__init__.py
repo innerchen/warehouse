@@ -1,3 +1,3 @@
 
+from ware.func import *
 from ware.ware import *
-from ware.coreutils import *

@@ -18,18 +18,27 @@ def vim_version():
 
 
 def setup():
-    print(ware.os_type, ware.os_version)
 
     if vim_version() < "8.0":
-        pass
+        print("please install vim 8.0")
+        return
 
-    ware.command("ln -sf %s %s" % (os.path.join(vim_dot_path, ".vimrc"), ware.home))
-    ware.command("ln -sf %s %s" % (os.path.join(vim_dot_path, ".vimrc.basic"), ware.home))
-    ware.command("ln -sf %s %s" % (os.path.join(vim_dot_path, ".vimrc.plugins"), ware.home))
+    vundle_url = "https://github.com/VundleVim/Vundle.vim.git"
+    vundle_path = os.path.join(ware.home, ".vim", "bundle", "Vundle.vim")
+    if not os.path.exists(vundle_path):
+        ware.command("git clone %s %s" % (vundle_url, vundle_path), output=True)
+
+    ware.ln(os.path.join(vim_dot_path, ".vimrc"), ware.home)
+    ware.ln(os.path.join(vim_dot_path, ".vimrc.basic"), ware.home)
+    ware.ln(os.path.join(vim_dot_path, ".vimrc.plugins"), ware.home)
 
     ware.mkdir(os.path.join(ware.home, ".vim"))
     ware.mkdir(os.path.join(ware.home, ".vim", "colors"))
+    ware.ln(os.path.join(vim_dot_path, "colors", "monokai.vim"), os.path.join(ware.home, ".vim", "colors"))
 
-
+    ware.command("vim +PluginInstall +qall")
+    ware.ln(os.path.join(vim_dot_path, "plugins", "airline", "powerline.vim"),
+            os.path.join(ware.home, ".vim", "bundle", "vim-airline", "autoload", "airline", "themes"))
+    ware.ln(os.path.join(vim_dot_path, "plugins", "youcompleteme", ".ycm_extra_conf.py"), ware.home)
 
 
