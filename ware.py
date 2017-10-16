@@ -30,3 +30,6 @@ def main():
     for comp, c in conf:
         comp.setup(c)
 
+
+if __name__ == "__main__":
+    main()

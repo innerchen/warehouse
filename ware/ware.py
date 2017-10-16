@@ -11,7 +11,9 @@ os_type, os_version = func.uname()
 
 
 def colored(text, color=None, on_color=None, attrs=None):
-    _colored(text, color, on_color, attrs)
+    if isinstance(attrs, str):
+        attrs = [attrs]
+    return _colored(text, color, on_color, attrs)
 
 if os_type != "macOS" and os_type != "Ubuntu":
     print("not supported system: ", os_type)
