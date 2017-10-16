@@ -10,6 +10,8 @@ ubuntu_temp_path = ware.mkdir(os.path.join(ware.temp_path, "ubuntu"))
 
 def set_source(code):
 
+    print(ware.colored("==>", color="green"), ware.colored("setting sources list", attrs="bold"))
+
     source_url = "https://mirrors.tuna.tsinghua.edu.cn/ubuntu/"
     source_end = "main restricted universe multiverse"
 
@@ -46,6 +48,8 @@ def setup(conf=None):
     if ware.os_type != "Ubuntu" and ware.os_version not in os_code:
         return
 
+    print(ware.colored("Ubuntu", attrs="bold"))
+
     ware.command("bash %s" % os.path.join(ubuntu_dot_path, "setup-theme.sh"))
 
     set_source(os_code[ware.os_version])
@@ -65,4 +69,6 @@ def setup(conf=None):
         ware.install("trash-cli")
 
     install_vim()
+
+    print("")
 

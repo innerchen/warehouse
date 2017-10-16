@@ -1,7 +1,7 @@
 
 {
     "ubuntu" : {"trash": false},
-    "vim" : {},
-    "zsh" : {}
+    "zsh" : true,
+    "vim" : true
 }
 

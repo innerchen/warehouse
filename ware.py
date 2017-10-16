@@ -14,16 +14,19 @@ def main():
         with open(sys.argv[1]) as f:
             conf_json = json.load(f)
     else:
-        conf_json = {k: {} for k in dir(component) if not k.startswith("_")}
+        conf_json = {k: True for k in dir(component) if not k.startswith("_")}
 
-    conf = {}
-    for k, v in conf_json.items():
-        if not hasattr(component, k):
+    components = ["ubuntu", "zsh", "vim"]
+
+    conf = []
+    for comp in components:
+        if not hasattr(component, comp) or comp not in conf_json:
             continue
-        if len(v) == 0:
-            v = None
-        conf[getattr(component, k)] = v
+        if conf_json is False:
+            continue
+        c = None if conf_json[comp] is True else conf_json[comp]
+        conf.append((getattr(component, comp), c))
 
-    for comp, c in conf.items():
+    for comp, c in conf:
         comp.setup(c)
 
