@@ -17,7 +17,7 @@ def vim_version():
     return re.findall("VIM.*(\d\.\d)", version)[0]
 
 
-def setup():
+def setup(conf=None):
 
     if vim_version() < "8.0":
         print("please install vim 8.0")

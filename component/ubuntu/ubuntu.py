@@ -40,13 +40,13 @@ def install_vim():
     ware.install("vim-nox")
 
 
-def setup():
+def setup(conf=None):
 
     os_code = {"16.04": "xenial", "14.04": "trusty"}
     if ware.os_type != "Ubuntu" and ware.os_version not in os_code:
         return
 
-    ware.command("bash %s" % os.path.join(ubuntu_dot_path, "setup_theme.sh"))
+    ware.command("bash %s" % os.path.join(ubuntu_dot_path, "setup-theme.sh"))
 
     set_source(os_code[ware.os_version])
     ware.update()
@@ -55,11 +55,14 @@ def setup():
     ware.install("python-dev")
     ware.install("python3-dev")
 
-    programs = ["ack", "cmake", "curl", "git", "trash", "zsh"]
+    programs = ["ack", "cmake", "curl", "git", "zsh"]
     for program in programs:
         if ware.which(program) is not None:
             continue
         ware.install(program)
+
+    if conf is None or ("trash" in conf and conf["trash"]):
+        ware.install("trash-cli")
 
     install_vim()
 
