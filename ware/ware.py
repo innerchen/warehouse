@@ -26,6 +26,7 @@ if os_type == "macOS" and func.which("brew") is None:
 
 temp_path = func.mkdir(os.path.join(func.tempfile(), "warehouse"))
 log = func.touch(os.path.join(temp_path, "ware.log"))
+func.echo("", log)
 password = func.passwd()
 
 

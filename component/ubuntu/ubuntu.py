@@ -56,17 +56,23 @@ def setup(conf=None):
     ware.update()
     ware.upgrade()
 
-    ware.install("python-dev")
-    ware.install("python3-dev")
+    s, o = ware.command("dpkg -l python-dev")
+    if s != 0:
+        ware.install("python-dev")
 
-    programs = ["ack", "cmake", "curl", "git", "zsh"]
+    s, o = ware.command("dpkg -l python3-dev")
+    if s != 0:
+        ware.install("python3-dev")
+
+    programs = ["ack-grep", "cmake", "curl", "git", "zsh"]
     for program in programs:
         if ware.which(program) is not None:
             continue
         ware.install(program)
 
     if conf is None or ("trash" in conf and conf["trash"]):
-        ware.install("trash-cli")
+        if ware.which("trash") is None:
+            ware.install("trash-cli")
 
     install_vim()
 
