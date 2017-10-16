@@ -1,0 +1,37 @@
+{
+    "editor.fontSize": 12,
+    "editor.fontFamily": "Monaco, Consolas",
+
+    "workbench.colorTheme": "Visual Studio Light",
+    "workbench.welcome.enabled": false,
+
+    "vim.leader": ",",
+    "vim.disableAnnoyingNeovimMessage": true,
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": [";"],
+            "after": [":"]
+        },
+        {
+            "before": ["U"],
+            "after": ["C-R"]
+        },
+        {
+            "before": ["H"],
+            "after": ["^"]
+        },
+        {
+            "before": ["L"],
+            "after": ["$"]
+        },
+        {
+            "before": ["d", "L"],
+            "after": ["<Esc>"],
+            "commands":[
+                {
+                    "command": "deleteAllRight"
+                }
+            ]
+        }
+    ]
+}
