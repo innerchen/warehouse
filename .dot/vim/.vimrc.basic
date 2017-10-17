@@ -45,7 +45,7 @@ set foldlevel=100   " set fold method
 set foldmethod=indent
 
 set scrolloff=2     " minimum lines to keep above and below cursor
-set completeopt+=longest
+set completeopt-=preview
 
 
 let mapleader = ","
