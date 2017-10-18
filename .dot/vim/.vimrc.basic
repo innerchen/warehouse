@@ -57,8 +57,8 @@ nnoremap <silent> <space> @=((foldclosed(line('.')) < 0) ? 'zc':'zo')<CR>
 nnoremap ; :
 nnoremap U <C-R>
 
-nnoremap H ^
-nnoremap L $
+noremap H ^
+noremap L $
 
 inoremap <C-K> <Up>
 inoremap <C-J> <Down>
