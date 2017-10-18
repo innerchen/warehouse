@@ -12,7 +12,7 @@ def set_source(code):
 
     print(ware.colored("==>", color="green"), ware.colored("setting sources list", attrs="bold"))
 
-    source_url = "https://mirrors.tuna.tsinghua.edu.cn/ubuntu/"
+    source_url = "https://mirrors.ustc.edu.cn/ubuntu/"
     source_end = "main restricted universe multiverse"
 
     sources_list = ware.touch(os.path.join(ware.temp_path, "ubuntu", "sources.list"))
