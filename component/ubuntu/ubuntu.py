@@ -56,11 +56,11 @@ def setup(conf=None):
     ware.update()
     ware.upgrade()
 
-    s, o = ware.command("dpkg -l python-dev")
+    s, o = ware.command("dpkg -s python-dev")
     if s != 0:
         ware.install("python-dev")
 
-    s, o = ware.command("dpkg -l python3-dev")
+    s, o = ware.command("dpkg -s python3-dev")
     if s != 0:
         ware.install("python3-dev")
 

@@ -1,0 +1,6 @@
+
+/usr/share/X11/xkb/symbols/pc
+
+key <ESC>  {	[ Escape, asciitilde	]	}
+key <CAPS> {	[ Control_L     ]	}
+
