@@ -5,6 +5,7 @@
     set t_Co=256
     let g:airline_theme = 'powerline'
     let g:airline#extensions#whitespace#enabled = 0
+    let g:airline#extensions#tabline#enabled = 1
 
 " }
 
