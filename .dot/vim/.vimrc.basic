@@ -60,11 +60,6 @@ nnoremap U <C-R>
 noremap H ^
 noremap L $
 
-inoremap <C-K> <Up>
-inoremap <C-J> <Down>
-inoremap <C-H> <Left>
-inoremap <C-L> <Right>
-
-nnoremap <C-K> :tabnext<CR>
-nnoremap <C-J> :tabprevious<CR>
+nnoremap K :tabnext<CR>
+nnoremap J :tabprevious<CR>
 

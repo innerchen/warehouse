@@ -1,6 +1,13 @@
 
 /usr/share/X11/xkb/symbols/pc
 
-key <ESC>  {	[ Escape, asciitilde	]	}
-key <CAPS> {	[ Control_L     ]	}
+key <ESC>  {    [ Escape,   asciitilde  ]   }
+key <CAPS> {	[ Control_R ]	}
+
+/usr/share/X11/xkb/symbols/us
+
+key <AC06> {    [ h,    H,  Left,   Left    ]   };
+key <AC07> {    [ j,    J,  Down,   Down    ]   };
+key <AC08> {    [ k,    K,  Up,     Up      ]   };
+key <AC09> {    [ l,    L,  Right,  Right   ]   };
 

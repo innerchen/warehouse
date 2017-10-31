@@ -4,8 +4,8 @@ import json
 import ycm_core
 
 
-cxx_flags = [ '-Wall', '-Werror', "-std=c++11", "-x", "c++" ]
-c11_flags = [ '-Wall', '-Werror', "-std=c11", "-x", "c" ]
+cxx_flags = [ '-Wall', "-std=c++11", "-x", "c++" ]
+c11_flags = [ '-Wall', "-std=c11", "-x", "c" ]
 
 compilation_database_folder = ''
 
