@@ -9,6 +9,10 @@
 
 " }
 
+" rainbow {
+    let g:rainbow_active = 1
+" }
+
 " NERDTree {
 
     nnoremap <silent> <F3> :NERDTreeTabsToggle<CR>

@@ -14,6 +14,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'tpope/vim-sleuth'
+Plugin 'luochen1990/rainbow'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
