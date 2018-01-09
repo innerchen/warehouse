@@ -31,7 +31,7 @@ main() {
     fi
 
     set_source
-    bash $(path)/.dot/ubuntu/setup-theme.sh
+    bash $(path)/config/ubuntu/monokai/setup-theme.sh
 
 }
 

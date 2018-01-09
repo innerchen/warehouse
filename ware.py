@@ -16,9 +16,11 @@ class Color(object):
 
 
 def bash(argv):
-    process = subprocess.Popen(['bash'] + argv, stdout=subprocess.PIPE)
+    process = subprocess.Popen(['bash'] + argv, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     label = ' '
     for line in iter(process.stdout.readline, b''):
+        if b'\r' in line:
+            print("!!!!")
         print(' ' * len(label), end='\r')
         line = str(line, 'utf-8')
         if line.startswith('[warehouse]'):

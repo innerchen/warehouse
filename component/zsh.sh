@@ -17,25 +17,23 @@ oh_my_zsh() {
     sed "s/^plugins=.*/plugins=()/" ~/.zshrc
     sed "s/^ZSH_THEME=.*/ZSH_THEME=\"mine\"/" ~/.zshrc
     if ! cat ~/.zshrc | grep "User configuration" >/dev/null; then
-        echo "#User configuration" | tee -a ~/.zshrc >/dev/null
-        echo "source \$HOME/.zshrc_user" | tee -a ~/.zshrc >/dev/null
+        echo "#User configuration" | tee -a ~/.zshrc
+        echo "source \$HOME/.zshrc_user" | tee -a ~/.zshrc
     fi
 
-    ln -sf $(path)/.dot/zsh/theme/mine.zsh-theme ~/.oh-my-zsh/themes/
-    ln -sf $(path)/.dot/zsh/.zshrc_user ~/
-    ln -sf $(path)/.dot/zsh/.dircolors ~/
+    ln -sf $(path)/config/zsh/theme/mine.zsh-theme ~/.oh-my-zsh/themes/
+    ln -sf $(path)/config/zsh/.zshrc_user ~/
+    ln -sf $(path)/config/zsh/.dircolors ~/
     ! [ -e ~/.zshrc_personal ] && touch ~/.zshrc_personal
 
 }
 
 
 main() {
-    if ! has zsh; then
-        sudo apt-get install zsh
-    fi
-    if ! has curl; then
-        sudo apt-get install curl
-    fi
+
+    ! has zsh && ware install zsh
+    ! has curl && ware install curl
+
     oh_my_zsh
 }
 

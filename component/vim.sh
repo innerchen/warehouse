@@ -12,40 +12,49 @@ vim_version() {
 }
 
 vim_install() {
-    if ! ls /etc/apt/sources.list.d/ | grep jonathonf-ubuntu-vim > /dev/null; then
-        sudo $1 add-apt-repository ppa:jonathonf/vim -y
+
+    if [[ $(os) == Ubuntu* ]]; then
+        if ! ls /etc/apt/sources.list.d/ | grep jonathonf-ubuntu-vim > /dev/null; then
+            sudo $1 add-apt-repository ppa:jonathonf/vim -y
+        fi
     fi
-    sudo $1 apt-get update
-    sudo $1 apt-get install vim-nox
+    ware update
+    [[ $(os) == Ubuntu* ]] && ware install vim-nox
+    [ $(os) = "macOS" ] && ware install vim --with-python3
+
 }
 
-vim_plugin() {
+vim_config() {
 
     ! [ -d ~/.vim ] && mkdir ~/.vim
     ! [ -d ~/.vim/colors ] && mkdir ~/.vim/colors
     ! [ -d ~/.vim/bundle ] && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle
 
-    ln -sf $(path)/.dot/vim/.vimrc ~/
-    ln -sf $(path)/.dot/vim/.vimrc.basic ~/
-    ln -sf $(path)/.dot/vim/.vimrc.plugins ~/
-    ln -sf $(path)/.dot/vim/colors/monokai.vim ~/.vim/colors/
+    ln -sf $(path)/config/vim/.vimrc ~/
+    ln -sf $(path)/config/vim/.vimrc.basic ~/
+    ln -sf $(path)/config/vim/.vimrc.plugins ~/
+    ln -sf $(path)/config/vim/colors/monokai.vim ~/.vim/colors/
 
-    vim +PluginInstall +qall
-    ln -sf $(path)/.dot/vim/plugins/airline/powerline.vim ~/.vim/bundle/vim-airline/autoload/airline/themes/
-    ln -sf $(path)/plugins/youcompleteme/.ycm_extra_conf.py ~/
+    for plugin in $(cat ~/.vimrc | grep "Plugin '" | sed "s/^Plugin//" | tr -d "'"); do
+        dir=($(echo ${plugin} | tr '/' ' '))
+        if ! [ -d ~/.vim/bundle/${dir[1]} ]; then
+            git clone https://github.com/${plugin} --recursive ~/.vim/bundle/${dir[1]}
+        fi
+    done
+    vim +PluginInstall +qall >/dev/null 2>&1
 
+    ln -sf $(path)/config/vim/plugins/airline/powerline.vim ~/.vim/bundle/vim-airline/autoload/airline/themes/
+    ln -sf $(path)/config/vim/plugins/youcompleteme/.ycm_extra_conf.py ~/
 }
-
 
 main() {
 
     ver=$(vim_version)
 
     if [ $(numcmp ${ver} 8.0) -lt 0 ]; then
-        vim_install $1
+        vim_install
     fi
-    vim_plugin
-
+    vim_config
 }
 
-main $1
+main
