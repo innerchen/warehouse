@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ $# -lt 1 ]; then
+if [[ $# -lt 1 ]]; then
     echo "usage: " bash $0 password [args]
     exit
 fi
@@ -13,20 +13,20 @@ if ! echo ${password} | env sudo -kS echo "password is right" >/dev/null 2>&1; t
 fi
 
 has() {
-    if [ $# -eq 1 ]; then
-        hash $1 >/dev/null
+    if [[ $# -eq 1 ]]; then
+        hash $1 >/dev/null 2>&1
         return $?
     fi
 }
 
 os() {
-    if [ $(uname) = "Linux" ]; then
+    if [[ $(uname) == "Linux" ]]; then
         dist=($(lsb_release -i))
         info=($(lsb_release -r))
         echo ${dist[-1]} ${info[-1]}
     fi
-    if [ $(uname) = "Darwin" ]; then
-        echo macOS
+    if [[ $(uname) == "Darwin" ]]; then
+        echo "macOS"
     fi
 }
 
@@ -36,19 +36,19 @@ sudo() {
 
 ware() {
     if [[ $(os) == Ubuntu* ]]; then
-        sudo apt-get "$@"
+        sudo apt-get "$@" -y
     fi
-    if [ $(os) = "macOS" ]; then
+    if [[ $(os) == macOS ]]; then
         HOMEBREW_NO_AUTO_UPDATE=1 brew "$@"
     fi
 }
 
 path() {
-    realpath $(dirname $0)/..
+    realpath $(dirname "$0")/..
 }
 
 tmp() {
-    ! [ -d $(path)/.tmp ] && mkdir $(path)/.tmp
+    ! [[ -d $(path)/.tmp ]] && mkdir "$(path)"/.tmp
     echo $(path)/.tmp
 }
 
@@ -62,8 +62,8 @@ numcmp() {
 
 sed() {
     input="${@: -1}"
-    if [ $# -eq 2 ] && [ -e ${input} ]; then
-        env sed "$@" >${input}.tmp && mv ${input}.tmp ${input}
+    if [[ $# -eq 2 ]] && [[ -e ${input} ]]; then
+        env sed "$@" >"${input}".tmp && mv "${input}".tmp "${input}"
     else
         env sed "$@"
     fi

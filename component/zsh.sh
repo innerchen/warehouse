@@ -4,13 +4,13 @@ source $(dirname $0)/../core/ware.sh
 
 oh_my_zsh() {
 
-    if ! [ -d ~/.oh-my-zsh ]; then
+    if ! [[ -d ~/.oh-my-zsh ]]; then
         curl -O "https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
-        mv install.sh $(tmp)/oh_my_zsh.sh
-        sed "s/chsh -s/echo/" $(tmp)/oh_my_zsh.sh
-        sed "s/env zsh//" $(tmp)/oh_my_zsh.sh
+        mv install.sh "$(tmp)"/oh_my_zsh.sh
+        sed "s/chsh -s/echo/" "$(tmp)"/oh_my_zsh.sh
+        sed "s/env zsh//" "$(tmp)"/oh_my_zsh.sh
 
-        bash $(tmp)/oh_my_zsh.sh
+        bash "$(tmp)"/oh_my_zsh.sh
         sudo chsh -s $(grep /zsh$ /etc/shells | tail -1) $(whoami)
     fi
 
@@ -21,10 +21,10 @@ oh_my_zsh() {
         echo "source \$HOME/.zshrc_user" | tee -a ~/.zshrc
     fi
 
-    ln -sf $(path)/config/zsh/theme/mine.zsh-theme ~/.oh-my-zsh/themes/
-    ln -sf $(path)/config/zsh/.zshrc_user ~/
-    ln -sf $(path)/config/zsh/.dircolors ~/
-    ! [ -e ~/.zshrc_personal ] && touch ~/.zshrc_personal
+    ln -sf "$(path)"/config/zsh/theme/mine.zsh-theme ~/.oh-my-zsh/themes/
+    ln -sf "$(path)"/config/zsh/.zshrc_user ~/
+    ln -sf "$(path)"/config/zsh/.dircolors ~/
+    ! [[ -e ~/.zshrc_personal ]] && touch ~/.zshrc_personal
 
 }
 
