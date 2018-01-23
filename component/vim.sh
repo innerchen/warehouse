@@ -28,7 +28,7 @@ vim_config() {
 
     ! [[ -d ~/.vim ]] && mkdir ~/.vim
     ! [[ -d ~/.vim/colors ]] && mkdir ~/.vim/colors
-    ! [[ -d ~/.vim/bundle ]] && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle
+    ! [[ -d ~/.vim/bundle ]] && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
     ln -sf "$(path)"/config/vim/.vimrc ~/
     ln -sf "$(path)"/config/vim/.vimrc.basic ~/
@@ -45,6 +45,14 @@ vim_config() {
 
     ln -sf "$(path)"/config/vim/plugins/airline/powerline.vim ~/.vim/bundle/vim-airline/autoload/airline/themes/
     ln -sf "$(path)"/config/vim/plugins/youcompleteme/.ycm_extra_conf.py ~/
+}
+
+ycm_compile() {
+
+    if [[ -e ~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so ]]; then
+        return 0
+    fi
+
 }
 
 main() {

@@ -16,7 +16,7 @@ class Color(object):
 
 
 def bash(argv):
-    process = subprocess.Popen(['bash'] + argv, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    process = subprocess.Popen(['bash'] + argv, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     label = ' '
     for line in iter(process.stdout.readline, b''):
         if b'\r' in line:

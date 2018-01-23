@@ -14,7 +14,6 @@ oh_my_zsh() {
         sudo chsh -s $(grep /zsh$ /etc/shells | tail -1) $(whoami)
     fi
 
-    sed "s/^plugins=.*/plugins=()/" ~/.zshrc
     sed "s/^ZSH_THEME=.*/ZSH_THEME=\"mine\"/" ~/.zshrc
     if ! cat ~/.zshrc | grep "User configuration" >/dev/null; then
         echo "#User configuration" | tee -a ~/.zshrc
