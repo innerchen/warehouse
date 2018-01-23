@@ -1,23 +1,23 @@
 {
-    "usageCount": 141,
-    "type": "folder",
-    "modes": [],
     "hotkey": {
         "modifiers": [],
         "hotKey": null
     },
-    "abbreviation": {
-        "triggerInside": false,
-        "backspace": true,
-        "abbreviations": [],
-        "immediate": false,
-        "wordChars": "[\\w]",
-        "ignoreCase": false
+    "filter": {
+        "isRecursive": false,
+        "regex": null
     },
+    "type": "folder",
     "showInTrayMenu": false,
     "title": ".autokey",
-    "filter": {
-        "regex": null,
-        "isRecursive": false
+    "modes": [],
+    "usageCount": 0,
+    "abbreviation": {
+        "abbreviations": [],
+        "ignoreCase": false,
+        "triggerInside": false,
+        "wordChars": "[\\w]",
+        "immediate": false,
+        "backspace": true
     }
 }

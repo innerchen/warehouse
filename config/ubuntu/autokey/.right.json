@@ -1,31 +1,31 @@
 {
-    "modes": [
-        3
-    ],
-    "description": "right",
     "matchCase": false,
-    "abbreviation": {
-        "triggerInside": false,
-        "backspace": true,
-        "abbreviations": [],
-        "immediate": false,
-        "wordChars": "[\\w]",
-        "ignoreCase": false
-    },
-    "sendMode": "kb",
-    "showInTrayMenu": true,
-    "omitTrigger": false,
-    "usageCount": 0,
-    "type": "phrase",
+    "prompt": false,
     "hotkey": {
         "modifiers": [
             "<ctrl>"
         ],
         "hotKey": "l"
     },
-    "prompt": false,
+    "sendMode": "kb",
     "filter": {
-        "regex": null,
-        "isRecursive": false
+        "isRecursive": false,
+        "regex": null
+    },
+    "omitTrigger": false,
+    "usageCount": 0,
+    "description": "right",
+    "type": "phrase",
+    "showInTrayMenu": false,
+    "modes": [
+        3
+    ],
+    "abbreviation": {
+        "abbreviations": [],
+        "ignoreCase": false,
+        "triggerInside": false,
+        "wordChars": "[\\w]",
+        "immediate": false,
+        "backspace": true
     }
 }
