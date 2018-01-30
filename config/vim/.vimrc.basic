@@ -18,9 +18,6 @@ set number          " show line number
 set ruler           " show current position
 set cursorline      " highlight current line
 set wildmenu        " show list instead of just completing
-set wildignore+=*.o,*~,*.pyc,*.class
-
-set selection=exclusive
 
 set showmatch       " showing matching brackets
 set matchtime=0
