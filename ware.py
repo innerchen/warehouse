@@ -30,9 +30,7 @@ def bash(argv):
     process = subprocess.Popen(['bash'] + argv, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     label = ' '
     for line in iter(process.stdout.readline, b''):
-        if b'\r' in line:
-            print("!!!!")
-        print(' ' * len(label), end='\r')
+        Color.print(Color.RESET, ' ' * len(label), end='\r')
         line = str(line, 'utf-8')
         if line.startswith('[warehouse]'):
             label = line[:-1]
@@ -44,9 +42,20 @@ def bash(argv):
 def main():
 
     pwd = password()
-    bash(['./component/ubuntu.sh', pwd])
-    bash(['./component/zsh.sh', pwd])
-    bash(['./component/vim.sh', pwd])
+
+    ubuntu = input("set up ubuntu [Y/n]")
+    zsh = input("set up zsh [Y/n]")
+    vim = input("set up vim [Y/n]")
+    ycm = input("build YouCompleteMe [y/N]")
+
+    if ubuntu != 'N' and ubuntu != 'n':
+        bash(['./component/ubuntu.sh', pwd])
+    if zsh != 'N' and zsh != 'n':
+        bash(['./component/zsh.sh', pwd])
+    if vim != 'N' and vim != 'n':
+        bash(['./component/vim.sh', pwd])
+    if ycm == 'Y' or ycm == 'y':
+        pass
 
 
 if __name__ == "__main__":
