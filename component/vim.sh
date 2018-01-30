@@ -47,10 +47,10 @@ vim_config() {
     ln -sf "$(path)"/config/vim/plugins/youcompleteme/.ycm_extra_conf.py ~/
 }
 
-ycm_compile() {
+build_ycm() {
 
     if [[ -e ~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so ]]; then
-        return 0
+        echo "build ycm"
     fi
 
 }
@@ -63,6 +63,9 @@ main() {
         vim_install
     fi
     vim_config
+    if [[ $1 == "--with-ycm" ]]; then
+        build_ycm
+    fi
 }
 
-main
+main "$@"
