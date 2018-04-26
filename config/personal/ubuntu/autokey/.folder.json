@@ -1,0 +1,23 @@
+{
+    "hotkey": {
+        "modifiers": [],
+        "hotKey": null
+    },
+    "filter": {
+        "isRecursive": false,
+        "regex": null
+    },
+    "type": "folder",
+    "showInTrayMenu": false,
+    "title": ".autokey",
+    "modes": [],
+    "usageCount": 0,
+    "abbreviation": {
+        "abbreviations": [],
+        "ignoreCase": false,
+        "triggerInside": false,
+        "wordChars": "[\\w]",
+        "immediate": false,
+        "backspace": true
+    }
+}
