@@ -1,0 +1,27 @@
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" Make sure you use single quotes
+
+Plug 'vim-airline/vim-airline'
+Plug 'plasticboy/vim-markdown'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'tpope/vim-sleuth'
+
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'scrooloose/nerdcommenter'
+Plug 'Raimondi/delimitMate'
+Plug 'google/vim-searchindex'
+
+Plug 'mileszs/ack.vim'
+Plug 'Valloric/YouCompleteMe'
+
+" Initialize plugin system
+call plug#end()
+
+source ~/.vimrc.basic
+source ~/.vimrc.advance
+

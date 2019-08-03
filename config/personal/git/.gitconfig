@@ -1,6 +1,0 @@
-[user]
-	email = innerchen@outlook.com
-	name = innerchen
-[push]
-	default = simple
-	excludesfile = ~/.gitignore_global
