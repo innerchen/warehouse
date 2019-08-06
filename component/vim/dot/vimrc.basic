@@ -3,6 +3,7 @@ set nocompatible        " no compatibility with vi
 set encoding=utf-8      " set utf-8 as standard encoding
 set nobackup            " don't use backupfiles
 set noswapfile          " don't use a swap file
+set noundofile          " don't use undofile
 set history=1000        " store a ton of history
 set noerrorbells visualbell t_vb=
 

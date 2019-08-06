@@ -25,13 +25,23 @@ hi PmenuSel     ctermfg=none    ctermbg=none    cterm=none
 hi PmenuSbar    ctermfg=none    ctermbg=none    cterm=none
 hi PmenuThumb   ctermfg=none    ctermbg=none    cterm=none
 
+hi Title        ctermfg=0       ctermbg=none    cterm=none
+hi TabLine      ctermfg=7       ctermbg=0       cterm=none
+hi TabLineSel   ctermfg=none    ctermbg=0       cterm=none
+hi TabLineFill  ctermfg=none    ctermbg=0       cterm=none
+hi StatusLine   ctermfg=none    ctermbg=0       cterm=none
+hi StatusLineNC ctermfg=7       ctermbg=0       cterm=none
+
 hi MatchParen   ctermfg=1       ctermbg=none    cterm=underline
 hi Search       ctermfg=none    ctermbg=0       cterm=none
 hi IncSearch    ctermfg=16      ctermbg=3       cterm=none
 
-hi ERROR        ctermfg=16      ctermbg=1       cterm=none
 hi TODO         ctermfg=16      ctermbg=3       cterm=none
+hi ERROR        ctermfg=1       ctermbg=none    cterm=none
+hi SpellCap     ctermfg=208     ctermbg=none    cterm=none
+hi SpellBad     ctermfg=1       ctermbg=none    cterm=none
 hi ErrorMsg     ctermfg=1       ctermbg=none    cterm=none
+hi WarningMsg   ctermfg=1       ctermbg=none    cterm=none
 
 hi ColorRed     ctermfg=1       ctermbg=none    cterm=none
 hi ColorGreen   ctermfg=2       ctermbg=none    cterm=none
@@ -50,3 +60,7 @@ hi! link    Statement   ColorRed
 hi! link    PreProc     ColorRed
 hi! link    Type        ColorCyan
 hi! link    Special     ColorMagenta
+
+hi! link    SyntasticWarningSign    ColorOrange
+
+
