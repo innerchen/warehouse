@@ -22,7 +22,7 @@ export LC_CTYPE=en_US.UTF-8
 has vim && export EDITOR=$(which vim)
 
 # Colors for auto completion
-has dircolors && export DIRCOLORS=dircolors
+export DIRCOLORS=dircolors
 has gdircolors && export DIRCOLORS=gdircolors
 has gls && alias ls="gls --color=tty"
 
