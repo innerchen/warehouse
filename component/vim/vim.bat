@@ -9,4 +9,4 @@ type %DOT%\vimrc > %USERPROFILE%\.vimrc
 type %DOT%\vimrc.basic > %USERPROFILE%\.vimrc.basic
 type %DOT%\colors\monokai.vim > %USERPROFILE%\.vim\colors\monokai.vim
 
-type %DOT%\vimrc.basic %DOT%\ideavimrc > %USERPROFILE%\.ideavimrc
+type %DOT%\ideavimrc > %USERPROFILE%\.ideavimrc
