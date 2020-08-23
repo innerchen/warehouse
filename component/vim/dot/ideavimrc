@@ -1,5 +1,7 @@
 
 set noerrorbells visualbell t_vb=
+set ignorecase
+set smartcase
 
 let mapleader = ","
 

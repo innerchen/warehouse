@@ -1,5 +1,7 @@
 
 set visualbell
+set ignorecase
+set smartcase
 
 let mapleader = ","
 
