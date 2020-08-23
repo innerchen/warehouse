@@ -1,44 +1,5 @@
 
-set nocompatible        " no compatibility with vi
-set encoding=utf-8      " set utf-8 as standard encoding
-set nobackup            " don't use backupfiles
-set noswapfile          " don't use a swap file
-set history=1000        " store a ton of history
 set noerrorbells visualbell t_vb=
-
-syntax on               " syntax highlighting
-colorscheme monokai
-
-set hidden              " allow buffer switching without saving
-set confirm             " confirm when closing unsaved file
-set mouse=a             " enable mouse
-set autoindent          " indent at the same level of the previous line
-set expandtab           " tabs are spaces
-set tabstop=4           " an indentation every four colums
-set backspace=2         " define behavior of backspace key
-set shiftwidth=4        " Use indents of 4 spaces
-set softtabstop=4       " let backspace delete indent
-
-set ruler               " show current position
-set number              " show line number
-set wildmenu            " show list instead of just completing
-set cursorline          " highlight current line
-set signcolumn=yes      " open signcolumn
-
-set nowrap              " don't wrap long lines
-set foldlevel=100       " set fold method
-set foldmethod=indent
-
-set magic               " for regular expressions turn magic on
-set showmatch           " showing matching brackets
-set matchtime=0
-set incsearch           " find as you type search
-set ignorecase          " case insensitive search
-
-set scrolloff=2         " minimum lines to keep above and below cursor
-set splitright          " puts new vsplit windows to the right of the current
-set splitbelow          " puts new vsplit windows to the right of the current
-set completeopt-=preview
 
 let mapleader = ","
 
